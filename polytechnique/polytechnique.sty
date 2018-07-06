@@ -21,22 +21,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{polytechnique}
  [2017/09/02 v1.3.5, standard scientific documents layout for Ecole polytechnique (Palaiseau,France).]
-%%\CharacterTable
-%% {Upper-case \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
-%% Lower-case \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
-%% Digits \0\1\2\3\4\5\6\7\8\9
-%% Exclamation \! Double quote \" Hash (number) \#
-%% Dollar \$ Percent \% Ampersand \&
-%% Acute accent \' Left paren \( Right paren \)
-%% Asterisk \* Plus \+ Comma \,
-%% Minus \- Point \. Solidus \/
-%% Colon \: Semicolon \; Less than \<
-%% Equals \= Greater than \> Question mark \?
-%% Commercial at \@ Left bracket \[ Backslash \\
-%% Right bracket \] Circumflex \^ Underscore \_
-%% Grave accent \` Left brace \{ Vertical bar \|
-%% Right brace \} Tilde \~}
-%%
 \DeclareOption{a4paper}{
     \PassOptionsToPackage{a4paper}{geometry}
 }
@@ -51,23 +35,23 @@
         []
     \titleformat{\section}
         [display]
-        {\color{rouge485}\LARGE\bfseries\sffamily\filcenter}
+        {\color{red485}\LARGE\bfseries\sffamily\filcenter}
         {\thesection}
         {0em}
         {\MakeUppercaseWithNewline}
         [\vspace*{-0.5\baselineskip}%
-            \includegraphics{\polyfiletlongrouge}]
+            \includegraphics{\polyfiletlongred}]
     \titleformat{\subsection}
         [block]
-        {\color{bleu315}\Large\scshape}
+        {\color{blue315}\Large\scshape}
         {\thesubsection}
         {0.5em}
         {}
         [\vspace*{-0.3\baselineskip}%
-            \includegraphics{\polyfiletcourtbleuclair}]
+            \includegraphics{\polyfiletcourtblueclair}]
 \titleformat{\subsubsection}
     [block]
-    {\color{bleu303}\large\scshape}
+    {\color{blue303}\large\scshape}
     {\thesubsubsection}
     {0.5em}
     {\textbullet{} }
@@ -99,7 +83,7 @@
     \AtEndOfPackage{
         \renewcommand{\enteteexterieur}[1]{
             \ifthesection{
-                    {\scshape\color{bleu303}
+                    {\scshape\color{blue303}
                         \thesection{}.~\sectiontitle}
             }{
             }
@@ -110,7 +94,7 @@
     \AtEndOfPackage{
         \renewcommand{\enteteexterieur}[1]{
             \ifthechapter{
-                     {\scshape\color{bleu303}
+                     {\scshape\color{blue303}
                          \thechapter{}.~\chaptertitle}
             }{
 
@@ -122,7 +106,7 @@
     \AtEndOfPackage{
         \renewcommand{\enteteexterieurimpair}{
             \ifthesection{%Si la section a ete definie
-                    {\scshape\color{bleu303}
+                    {\scshape\color{blue303}
                         \thesection{}.~\sectiontitle}
             }{
 
@@ -130,7 +114,7 @@
         }
         \renewcommand{\enteteexterieurpair}{
             \ifthechapter{
-                    {\scshape\color{bleu303}
+                    {\scshape\color{blue303}
                         \thechapter{}.~\chaptertitle}
             }{
 
@@ -144,7 +128,7 @@
         \renewcommand{\piedcentre}{
             \setlength{\largeurfiletpiedcentre}
                 {2\largeurfiletpiedcentre}
-            \textcolor{bleu303}{\shortstack[c]{
+            \textcolor{blue303}{\shortstack[c]{
                 \rule{\largeurfiletpiedcentre}{0.3mm}\\
                 \thepage/\pageref{LastPage}}}
         }
@@ -168,37 +152,26 @@
 \RequirePackage{ifpdf}
 \RequirePackage{lmodern}
 \RequirePackage[pagestyles]{titlesec}
-\definecolor{bleu303}{RGB}{0,62,92}
-\colorlet{bleu303pale}{bleu303!20!white}
-\definecolor{rouge485}{RGB}{213,43,30}
-\definecolor{bleu315}{RGB}{0,104,128}
-\ifpdf
-    \newcommand{\polyfiletlongrouge}
-    {polytechnique-filetlongrouge.pdf}
-    \newcommand{\polyfiletcourt}
-        {polytechnique-filetcourt.pdf}
-    \let\polyfiletcourtbleuclair\polyfiletcourt
-    \let\polyfiletcourtbleu\polyfiletcourt
-    \newcommand{\polylogovert}
-    {polytechnique-logovert.pdf}
-    \newcommand{\polylogohori}
-    {polytechnique-logohori.pdf}
-    \newcommand{\polyarmes}
-    {polytechnique-armes.pdf}
-\else
-    \newcommand{\polyfiletlongrouge}
-    {polytechnique-filetlongrouge.eps}
-    \newcommand{\polyfiletcourtbleuclair}
-        {polytechnique-filetcourtbleuclair.eps}
-    \newcommand{\polyfiletcourtbleu}
-    {polytechnique-filetcourtbleu.eps}
-    \newcommand{\polylogovert}
-    {polytechnique-logovert.eps}
-    \newcommand{\polylogohori}
-    {polytechnique-logohori.eps}
-    \newcommand{\polyarmes}
-    {polytechnique-armes.eps}
-\fi
+\definecolor{blue303}{RGB}{0,62,92}
+\colorlet{blue303pale}{blue303!20!white}
+% \definecolor{red485}{RGB}{213,43,30}
+\definecolor{red485}{RGB}{0,62,128}
+% \colorlet{red485}{blue303!20!white}
+\definecolor{blue315}{RGB}{0,104,128}
+
+\newcommand{\polyfiletlongred}
+{polytechnique/polytechnique-filetlongred.pdf}
+\newcommand{\polyfiletcourt}
+    {polytechnique/polytechnique-filetcourt.pdf}
+\let\polyfiletcourtblueclair\polyfiletcourt
+\let\polyfiletcourtblue\polyfiletcourt
+\newcommand{\polylogovert}
+{polytechnique/polytechnique-logovert.pdf}
+\newcommand{\polylogohori}
+{polytechnique/polytechnique-logohori.pdf}
+\newcommand{\polyarmes}
+{polytechnique/polytechnique-armes.pdf}
+
 \newlength{\margehaut}
 \setlength{\margehaut}{40mm}
 \newlength{\hauteurentete}
@@ -266,16 +239,16 @@
     bottom=\margebas,footskip=\separationpied
 }
 \newcommand{\piedcentre}{
-    \textcolor{bleu303}{\shortstack[c]
+    \textcolor{blue303}{\shortstack[c]
         {\rule{\largeurfiletpiedcentre}{0.3mm}\\\thepage}}
 }
 \newcommand{\enteteexterieur}[1]{
         {\begin{minipage}[b]{\largeurtitreentete}
-            \scshape#1\textcolor{bleu303}
+            \scshape#1\textcolor{blue303}
             \polytitrecourtsave
         \end{minipage}}
 }
-\newcommand{\enteteinterieur}[2][bleu303]{
+\newcommand{\enteteinterieur}[2][blue303]{
     {%
         \color{#1}%
         \includegraphics[height=\hauteurlogohori,width=2\largeurlogohori,keepaspectratio]{#2}%
@@ -353,7 +326,7 @@
      \begin{minipage}{5\largeurlogohori}
          \centering
          \raisebox{-0.5\height}{
-                \color{bleu303}
+                \color{blue303}
                 \includegraphics[width=1.5\largeurlogohori]
                     {\polylogohori}
             }
@@ -371,20 +344,20 @@
             \centering
             \begin{minipage}{0.33\textwidth}
                 \raisebox{-0.5\height}
-                    {\color{bleu303}%
+                    {\color{blue303}%
                         \includegraphics[width=\largeurlogovert]
                         {\polylogovert}
                     }
             \end{minipage}%
             %    \end{macrocode}
             \begin{minipage}{0.33\textwidth}
-                \color{bleu303}%
+                \color{blue303}%
                 \centering\polydatesave{}\\
                 \polyauthorsave{}\\
-                \includegraphics{\polyfiletcourtbleu}
+                \includegraphics{\polyfiletcourtblue}
             \end{minipage}%
             \begin{minipage}{0.33\textwidth}
-                    \color{bleu303}%
+                    \color{blue303}%
                     \flushright\raisebox{-0.5\height}
                     {\includegraphics[height=\hauteurlogovert,
                         width=1.75\largeurlogohori,
@@ -397,15 +370,15 @@
 \newcommand{\notitlepageupperline}{
     \noindent
     \begin{minipage}[b]{\largeurminipage}
-      \color{bleu303}%
+      \color{blue303}%
         \hspace{0cm}\polyauthorsave
     \end{minipage}%
     \hspace*{\fill}
-    {\color{bleu303}%
+    {\color{blue303}%
     \includegraphics[width=\largeurlogovert]{\polylogovert}}
     \hspace*{\fill}%
     \begin{minipage}[b]{\largeurminipage}
-      \color{bleu303}%
+      \color{blue303}%
         \flushright\hspace{0cm}\polydatesave
     \end{minipage}%
 }
@@ -415,10 +388,10 @@
             \notitlepageupperline{}
             \\[\separationlogotrait]
             \begin{center}
-                    \textcolor{bleu303}
+                    \textcolor{blue303}
                         {\rule{\textwidth}{\epaisseurtrait}}
                     \\
-                    \color{bleu303}\Huge\scshape
+                    \color{blue303}\Huge\scshape
                     \MakeUppercaseWithNewline{\polytitresave}
                 \ifthenelse{\boolean{subtitle}}{
                     \\[\separationlignestitre]
@@ -427,7 +400,7 @@
                     \\
                     \normalsize
                 }
-                \textcolor{bleu303}
+                \textcolor{blue303}
                     {\rule{\textwidth}{\epaisseurtrait}}
             \end{center}
             \vspace*{\distancetitrecorps}
@@ -438,19 +411,19 @@
 \newcommand{\titlepagelayout}{
         \noindent\makebox[\textwidth][c]{%
           \raisebox{-\totalheight}[0pt][0pt]{%
-            \color{bleu303pale}%
+            \color{blue303pale}%
             \includegraphics[height=\hauteurlogopage]{\polyarmes}}}
-        \vspace*{0.125\textheight}
+        \vspace*{0.06\textheight}
         \begin{center}
-            \Huge\sffamily\bfseries\color{bleu303}
+            \Huge\sffamily\bfseries\color{blue303}
             \MakeUppercaseWithNewline{\polytitresave}\\
             \vspace*{0.2\textheight}
             \LARGE\hspace{0cm}\polysoustitresave\\
-            \vspace*{0.15\textheight}
-            \Large\mdseries\hspace{0cm}\polydatesave\\
-            \includegraphics{\polyfiletcourtbleu}
+            \vspace*{0.2\textheight}
+            \mdseries\rmfamily\hspace{0cm}\polyauthorsave\\
+            \includegraphics{\polyfiletcourtblue}
             \\[0.4\baselineskip]
-            \rmfamily\hspace{0cm}\polyauthorsave\\[\fill]
+            \Large\mdseries\hspace{0cm}\polydatesave\\[\fill]
             $\;$\titlepagebottomline{}
             \vspace*{-0.5\margebas}
         \end{center}
