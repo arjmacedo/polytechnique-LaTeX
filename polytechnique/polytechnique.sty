@@ -213,8 +213,8 @@
 \setlength{\largeurfiletpiedcentre}{4mm}
 \newlength{\largeurlogovert}
 \setlength{\largeurlogovert}{\paperwidth/\real{7}}
-\newlength{\hauteurlogovert}
-\setlength{\hauteurlogovert}{\largeurlogovert*\real{1.361}}
+\newlength{\heightlogovert}
+\setlength{\heightlogovert}{\largeurlogovert*\real{1.361}}
 \newlength{\largeurlogohori}
 \setlength{\largeurlogohori}{\hauteurlogohori*\real{1.859}}
 \newlength{\distancetitrelogo}
@@ -296,10 +296,10 @@
     \renewcommand*{\polysoustitresave}{#1}
     \setboolean{subtitle}{true}
 }
-\newcommand{\polytitresave}{}
+\newcommand{\polytitlesave}{}
 \newcommand{\polytitrecourtsave}{}
 \renewcommand*{\title}[2][{}]{
-    \renewcommand*{\polytitresave}{#2}
+    \renewcommand*{\polytitlesave}{#2}
     \ifthenelse{\equal{#1}{}}{
         \renewcommand*{\polytitrecourtsave}{#2}
     }{
@@ -332,7 +332,7 @@
             }
             \hspace{0.25\largeurlogohori}
             \raisebox{-0.5\height}{
-                \includegraphics[height=\hauteurlogovert,
+                \includegraphics[height=\heightlogovert,
                     width=1.5\largeurlogohori,
                     keepaspectratio]{#2}
             }
@@ -359,7 +359,7 @@
             \begin{minipage}{0.33\textwidth}
                     \color{blue303}%
                     \flushright\raisebox{-0.5\height}
-                    {\includegraphics[height=\hauteurlogovert,
+                    {\includegraphics[height=\heightlogovert,
                         width=1.75\largeurlogohori,
                         keepaspectratio]{#2}
                     }
@@ -392,7 +392,7 @@
                         {\rule{\textwidth}{\epaisseurtrait}}
                     \\
                     \color{blue303}\Huge\scshape
-                    \MakeUppercaseWithNewline{\polytitresave}
+                    \MakeUppercaseWithNewline{\polytitlesave}
                 \ifthenelse{\boolean{subtitle}}{
                     \\[\separationlignestitre]
                     \Large\upshape\polysoustitresave\\\normalsize
@@ -406,7 +406,7 @@
             \vspace*{\distancetitrecorps}
 }
 \newcommand{\titlepagebottomline}{
-\includegraphics[height=\hauteurlogovert]{\polylogovert}
+\includegraphics[height=\heightlogovert]{\polylogovert}
 }
 \newcommand{\titlepagelayout}{
         \noindent\makebox[\textwidth][c]{%
@@ -416,10 +416,10 @@
         \vspace*{0.06\textheight}
         \begin{center}
             \Huge\sffamily\bfseries\color{blue303}
-            \MakeUppercaseWithNewline{\polytitresave}\\
+            \MakeUppercaseWithNewline{\polytitlesave}\\
             \vspace*{0.2\textheight}
             \LARGE\hspace{0cm}\polysoustitresave\\
-            \vspace*{0.2\textheight}
+            \vspace*{0.3\textheight}
             \mdseries\rmfamily\hspace{0cm}\polyauthorsave\\
             \includegraphics{\polyfiletcourtblue}
             \\[0.4\baselineskip]

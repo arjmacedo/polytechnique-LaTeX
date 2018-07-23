@@ -1,15 +1,8 @@
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.synctex.gz
-source/polytechnique.pdf
-guide/installation.pdf
-*.zip
-*.glo
-*.idx
-*.toc
-*.dvi
-*.ind
-*.ilg
+# Ignore everything
+*
+
+# But
+!polytechnique/
+!.gitignore
+!LICENSE.txt
+!README.md
