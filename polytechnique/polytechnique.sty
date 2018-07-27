@@ -49,13 +49,47 @@
         {}
         [\vspace*{-0.3\baselineskip}%
             \includegraphics{\polyfiletcourtblueclair}]
-\titleformat{\subsubsection}
+    \titleformat{\subsubsection}
+        [block]
+        {\color{blue303}\large\scshape}
+        {\thesubsubsection}
+        {0.5em}
+        {\textbullet{} }
+        []
+        }
+}
+\DeclareOption{notsofancysections}{
+    \AtEndOfPackage{
+    \titleformat{\chapter}
     [block]
-    {\color{blue303}\large\scshape}
-    {\thesubsubsection}
+    {\color{blue315}\Large\bfseries\scshape}
+    {\thechapter}
     {0.5em}
-    {\textbullet{} }
-    []
+    {}
+    [\vspace*{-0.3\baselineskip}%
+        \includegraphics{\polyfiletcourtblueclair}]
+    \titleformat{\section}
+        [block]
+        {\color{blue315}\Large\scshape}
+        {\thesection}
+        {0.5em}
+        {}
+        [\vspace*{-0.3\baselineskip}%
+            \includegraphics{\polyfiletcourtblueclair}]
+    \titleformat{\subsection}
+        [block]
+        {\color{blue303}\large\scshape}
+        {\thesubsection}
+        {0.25em}
+        {\textbullet{} }
+        []
+    \titleformat{\subsubsection}
+        [block]
+        {\color{blue303}\scshape}
+        {\thesubsubsection}
+        {0.25em}
+        {\textbullet{} }
+        []
     }
 }
 \DeclareOption{notitlepage}{
@@ -154,10 +188,8 @@
 \RequirePackage[pagestyles]{titlesec}
 \definecolor{blue303}{RGB}{0,62,92}
 \colorlet{blue303pale}{blue303!20!white}
-% \definecolor{red485}{RGB}{213,43,30}
-\definecolor{red485}{RGB}{0,62,128}
-% \colorlet{red485}{blue303!20!white}
 \definecolor{blue315}{RGB}{0,104,128}
+\definecolor{red485}{RGB}{213,43,30}
 
 \newcommand{\polyfiletlongred}
 {polytechnique/polytechnique-filetlongred.pdf}
